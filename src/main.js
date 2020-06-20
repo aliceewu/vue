@@ -5,7 +5,7 @@ import Vue from 'vue'
 import './lib/mui/css/mui.min.css'
 import '../node_modules/mint-ui/lib/style.css'
 
-// 按需导入Mint-UI中的组件
+// 按需导入Mint-UI中的组件  
 import { Header } from 'mint-ui';
 Vue.component(Header.name, Header);
 
