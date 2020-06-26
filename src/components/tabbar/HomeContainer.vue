@@ -6,18 +6,20 @@
 			<mt-swipe-item v-for="item in lunbotuList" :key="item.url">
 				<img :src="item.img" alt="" />
 			</mt-swipe-item>
-		</mt-swipe>
+		</mt-swipe> 
            
 		<!-- 九宫格 到六宫格 的改造过程 -->
 		<ul class="mui-table-view mui-grid-view mui-grid-9">
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				    <router-link to="/home/newlist">
 					<img src="../../images/menu1.png" alt=""/>
 					<div class="mui-media-body">新闻资讯</div>
-				</a></li>
-			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
+				</router-link></li>
+			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3">
+				<router-link to="#">
 					<img src="../../images/menu2.png" alt=""/>
 					<div class="mui-media-body">图片分享</div>
-				</a></li>
+				</router-link></li>
 			<li class="mui-table-view-cell mui-media mui-col-xs-4 mui-col-sm-3"><a href="#">
 					<img src="../../images/menu3.png" alt=""/>
 					<div class="mui-media-body">商品购买</div>
@@ -54,7 +56,7 @@
 		},
 		methods: {
 			getLunbotu() { //获取轮播图数据的方法
-				this.$http.get('http://api.cms.liulongbin.top/api/getlunbo').then(result => {
+				this.$http.get('api/getlunbo').then(result => {
 					// console.log(result.body);
 					if (result.body.status === 0) {
 						//成功了
