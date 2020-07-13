@@ -26,8 +26,8 @@
 					</p>
 					<p class="num">购买数量：<numbox @getcount="getSelectedCount" :max="goodsinfo.stock_quantity"></numbox>
 
-					</p> 
-					<p> 
+					</p>
+					<p>
 						<mt-button type="primary" size="small">立即购买</mt-button>
 						<mt-button type="danger" size="small" @click="addToShopCar">加入购物车</mt-button>
 
@@ -127,6 +127,16 @@
 			addToShopCar() {
 				//添加到购物车
 				this.ballFlag = !this.ballFlag;
+				//{id:商品的id,count:要购买的数量,price:商品的单价,selected:false}
+				//拼接出要保存到store中的car数组里的商品信息对象
+				var goodsinfo = {
+					id: this.id,
+					count: this.selectedCount,
+					price: this.goodsinfo.sell_price,
+					selected: true
+				};
+				//调用store中的mutations来将商品加入购物车
+				this.$store.commit('addToCar',goodsinfo);
 			},
 			beforeEnter(el) {
 				el.style.transform = "translate(0,0)";
@@ -160,7 +170,7 @@
 			getSelectedCount(count) {
 				// 当子组件把 选中的数量传递给父组件的时候，把选中的值保存到 data 上
 				this.selectedCount = count;
-				console.log('父组件拿到的值为'+this.selectedCount);
+				console.log('父组件拿到的值为' + this.selectedCount);
 			}
 		},
 		components: {
@@ -179,7 +189,7 @@
 			color: black;
 		}
 
-		
+
 
 		.mui-numbox {
 			height: 25px;

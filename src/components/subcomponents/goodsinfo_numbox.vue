@@ -10,13 +10,13 @@
 	<!-- 分析： 子组件什么时候把 数据传递给父组件 -->
 
 </template>
-
+ 
 <script>
 	import mui from "../../lib/mui/js/mui.min.js"
 	
 	export default{
 		mounted() {
-			mui(".mui-numbox").numbox();
+			mui(".mui-numbox").numbox ();
 		},
 		methods:{
 			countChanged(){
